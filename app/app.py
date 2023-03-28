@@ -6,7 +6,7 @@ from functions.functions import candles, backtest_trades, backtest_report_calcul
 from functions.graphs import graph_balance_report, graph_drawdown_report, graph_trades_return, graph_trades
 
 # Variables
-tickers_pd = pd.read_csv('../../database/b3_stocks.csv')
+tickers_pd = pd.read_csv('/app/my_setup/database/b3_stocks.csv')
 tickers = tickers_pd['Código'].sort_values().to_list()
 
 folders = ['d', 'wk']
