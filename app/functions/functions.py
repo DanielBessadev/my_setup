@@ -6,7 +6,7 @@ import numpy as np
 def candles(ticker, start_date=False, end_date=False, folder=''):
     ticker = ticker.upper()
     directory=ticker
-    parent_dir=f'C:/Users/danie/Documents/Projeto/database/stocks_data/{folder}'
+    parent_dir=f'/app/my_setup/database/stocks_data/{folder}'
     
     if (os.path.isfile(f'{parent_dir}/{directory}/{ticker}_{folder}_quote.csv')):
         candles = pd.read_csv(f'{parent_dir}/{directory}/{ticker}_{folder}_quote.csv', index_col='Date')
@@ -39,7 +39,7 @@ def candles(ticker, start_date=False, end_date=False, folder=''):
 def backtest_trades(ticker, start_date=False, end_date=False, folder='', setup='', risk=False, start_capital=10000, trade_cost=4):
     ticker = ticker.upper()
     directory=ticker
-    parent_dir=f'C:/Users/danie/Documents/Projeto/database/stocks_data/{folder}'
+    parent_dir=f'/app/my_setup/database/stocks_data/{folder}'
     
     if (os.path.isfile(f'{parent_dir}/{directory}/{ticker}_{setup}.csv')):
         trades = pd.read_csv(f'{parent_dir}/{directory}/{ticker}_{setup}.csv',
@@ -754,7 +754,7 @@ def backtest_report_calculation(ticker, start_date, end_date, folder, setup, ris
 def buy_hold(ticker, start_date=False, end_date=False, folder='', start_capital=10000, trade_cost=4):
     ticker = ticker.upper()
     directory=ticker
-    parent_dir=f'C:/Users/danie/Documents/Projeto/database/stocks_data/{folder}'
+    parent_dir=f'/app/my_setup/database/stocks_data/{folder}'
 
     if (os.path.isfile(f'{parent_dir}/{directory}/{ticker}_{folder}_quote.csv')):
         stock_data = pd.read_csv(f'{parent_dir}/{directory}/{ticker}_{folder}_quote.csv', index_col='Date', engine='python', usecols=['Date','Close'], dtype={'Close':'float32'})
@@ -1127,7 +1127,7 @@ def all_stocks_setup_report(tickers, start_date=False, end_date=False, folder=''
     for ticker in tickers:
         ticker = ticker.upper()
         directory=ticker
-        parent_dir=f'C:/Users/danie/Documents/Projeto/database/stocks_data/{folder}'
+        parent_dir=f'/app/my_setup/database/stocks_data/{folder}'
         
         if (os.path.isfile(f'{parent_dir}/{directory}/{ticker}_{setup}.csv')):
             ticker_backtest_report = backtest_report_calculation(ticker, start_date=start_date, end_date=end_date, folder=folder, setup=setup, risk=risk, start_capital=start_capital, trade_cost=trade_cost)
