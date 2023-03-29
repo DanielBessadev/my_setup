@@ -6,7 +6,7 @@ from functions.graphs import graph_compare_report
 
 import streamlit as st
 
-tickers_pd = pd.read_csv('../database/b3_stocks.csv')
+tickers_pd = pd.read_csv('/app/my_setup/database/b3_stocks.csv')
 tickers = tickers_pd['Código'].sort_values().to_list()
 
 folders = ['d', 'wk']
