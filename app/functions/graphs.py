@@ -52,7 +52,7 @@ def graph_trades_return(trades):
     profit = profit['pct_change']
     fig = go.Figure()
     fig.add_trace(go.Bar(x=profit.index, y=profit, name='Retorno', marker_color='yellow'))
-    fig.update_layout(title='Retornos', 
+    fig.update_layout(title='Retorno por Trade', 
                       yaxis={"autorange": True, "ticksuffix": "%"}, 
                       yaxis_tickformat = '.2f')
     st.plotly_chart(fig)
@@ -111,6 +111,5 @@ def graph_compare_report(backtest_report, axis_x, axis_y):
                                      'colorscale':'plasma','showscale':True}))
     fig.update_layout(title={'text': f"{axis_y}  Vs  {axis_x}"},
                       xaxis={"title":{"text":f"{axis_x}"}, "autorange": True},
-                      yaxis={"title":{"text":f"{axis_y}"}, "autorange": True},
-                      width=1400, height=600)
+                      yaxis={"title":{"text":f"{axis_y}"}, "autorange": True})
     st.plotly_chart(fig)
