@@ -73,7 +73,7 @@ with c1:
                                     [f"{backtest_report['Annualized Profit %'][0]}%", f"{buy_hold_report['Annualized Profit %'][0]}%"],
                                     [f"{backtest_report['Annual Volatility %'][0]}%", f"{buy_hold_report['Annual Volatility %'][0]}%"]],
                             index=[['Capital Inicial','Total Trade Cost', 'Capital Final', 'Data Inicial', 'Data Final', 'Lucro', 'Lucro Anualizado', 'Volatilidade Anualizada']], 
-                            columns=[str(setup), 'Buy & Hold'])
+                            columns=[str(inp_setup), 'Buy & Hold'])
         st.table(basic)
 
     with subtab_all_trades:
@@ -87,7 +87,7 @@ with c1:
                                         [f"{backtest_report['Average Duration'][0]} dias", f"{buy_hold_report['Average Duration'][0]} dias"],
                                         [f"{backtest_report['Min Duration'][0]} dias", f"{buy_hold_report['Min Duration'][0]} dias"]], 
                                     index=[['Número de trades', 'Trade Ativo', 'Média de retorno', 'Razão Ganho/Perda', 'Payoff', 'Expectativa Matemática', 'Duração Máxima', 'Duração Média', 'Duração Mínima']], 
-                                    columns=[str(setup), 'Buy & Hold'])
+                                    columns=[str(inp_setup), 'Buy & Hold'])
         st.table(all_trades)
 
     with subtab_win_trades:
@@ -102,7 +102,7 @@ with c1:
                                         [f"{backtest_report['Max Consecutive Wins'][0]}"],
                                         [f"{backtest_report['Average Consecutive Wins'][0]}"]],
                                     index=[['Trades Vencedores', 'Taxa de Acerto', 'Lucro Máximo', 'Lucro Médio', 'Lucro Mínimo', 'Duração Máxima', 'Duração Média', 'Duração Mínima', 'Máximo de Ganhos Consecutivos', 'Média de Ganhos Consecutivos']],
-                                    columns=[str(setup)])
+                                    columns=[str(inp_setup)])
         st.table(win_trades)
 
     with subtab_loss_trades:
@@ -117,7 +117,7 @@ with c1:
                                             [f"{backtest_report['Max Consecutive Losses'][0]}"],
                                             [f"{backtest_report['Average Consecutive Losses'][0]}"]],
                                     index=[['Trades Negativos', 'Taxa de Perda', 'Perda Máxima', 'Perda Média', 'Perda Mínima', 'Duração Máxima', 'Duração Média', 'Duração Mínima', 'Máximo de Perdas Consecutivas', 'Média de Perdas Consecutivas']],
-                                    columns=[str(setup)])
+                                    columns=[str(inp_setup)])
         st.table(loss_trades)
     
     with subtab_drawndown:
@@ -129,7 +129,7 @@ with c1:
                                         [f"{backtest_report['Average Drawdown Duration'][0]} dias", f"{buy_hold_report['Average Drawdown Duration'][0]} dias"],
                                         [f"{backtest_report['Recovery Factor'][0]}", f"{buy_hold_report['Recovery Factor'][0]}"]],
                                     index=[['Valor Máximo', 'Porcentagem Máxima', 'Data de Drawdown Máximo', 'Maior Duração', 'Porcentagem Média', 'Duração Média', 'Fator de Recuperação']],
-                                    columns=[str(setup), 'Buy & Hold'])
+                                    columns=[str(inp_setup), 'Buy & Hold'])
         st.table(drawndown)
 
     graph_trades_return(trades)

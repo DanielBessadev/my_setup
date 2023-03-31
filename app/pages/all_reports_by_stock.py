@@ -9,9 +9,15 @@ import streamlit as st
 tickers_pd = pd.read_csv('/app/my_setup/database/b3_stocks.csv')
 tickers = tickers_pd['Código'].sort_values().to_list()
 
-folders = ['d', 'wk']
-setups_d = ['ff_fd_d','inside_bar_d','max_min_d', 'pfr_d', 'rsi_2_d', 'setup_123_d', 'setup_9_1_d']
-setups_wk = ['ff_fd_wk','inside_bar_wk','max_min_wk', 'pfr_wk', 'rsi_2_wk', 'setup_123_wk', 'setup_9_1_wk']
+frequency = {'Diário': 'd', 'Semanal': 'wk'}
+
+setups_info = {'Fechou Fora, Fechou Dentro': 'ff_fd', 
+          'Inside Bar': 'inside_bar', 
+          'Máximas e Mínimas': 'max_min', 
+          'Preço de Fechamento de Reversão': 'pfr', 
+          'RSI-2': 'rsi_2', 
+          'Setup 123 de Compra': 'setup_123', 
+          'Larry Williams 9.1': 'setup_9_1'}
 
 # Streamlit
 st.set_page_config(page_title='Meu Setup', layout='wide')
@@ -26,7 +32,8 @@ with c1:
 with c2:
     end_date = st.date_input('Data Final')
 with c3:
-    folder = st.selectbox('Frequência', folders)
+    inp_frequency = st.selectbox('Frequência', frequency.keys())
+    folder = frequency[inp_frequency]
 with c4:
     ticker = st.selectbox('Ativo', tickers)
 with c5:
@@ -36,10 +43,13 @@ with c6:
 with c7:
     risk = st.checkbox(label='Patrimônio Reinvestido', value=False)
 
+setups=[]
 if (folder == 'wk'):
-    setups = setups_wk
+    for i in setups_info.values():
+        setups.append(str(i + '_wk'))
 elif (folder == 'd'):
-    setups = setups_d
+    for i in setups_info.values():
+        setups.append(str(i + '_d'))
 
 all_reports_by_stock = all_reports_by_stock(ticker=ticker, start_date=start_date, end_date=end_date, folder=folder, setups=setups, risk=risk, start_capital=start_capital, trade_cost=trade_cost)
 
