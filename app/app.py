@@ -9,11 +9,15 @@ from functions.graphs import graph_balance_report, graph_drawdown_report, graph_
 tickers_pd = pd.read_csv('/app/my_setup/database/b3_stocks.csv')
 tickers = tickers_pd['Código'].sort_values().to_list()
 
-#folders = ['d', 'wk']
 frequency = {'Diário': 'd', 'Semanal': 'wk'}
 
-setups_d = ['ff_fd_d','inside_bar_d','max_min_d', 'pfr_d', 'rsi_2_d', 'setup_123_d', 'setup_9_1_d']
-setups_wk = ['ff_fd_wk','inside_bar_wk','max_min_wk', 'pfr_wk', 'rsi_2_wk', 'setup_123_wk', 'setup_9_1_wk']
+setups = {'Fechou Fora, Fechou Dentro': 'ff_fd', 
+          'Inside Bar': 'inside_bar', 
+          'Máximas e Mínimas': 'max_min', 
+          'Preço de Fechamento de Reversão': 'pfr', 
+          'RSI-2': 'rsi_2', 
+          'Setup 123 de Compra': 'setup_123', 
+          'Larry Williams 9.1': 'setup_9_1'}
 
 # Streamlit
 st.set_page_config(page_title='Meu Setup', layout='wide')
@@ -35,9 +39,11 @@ with c4:
     folder = frequency[inp_frequency]
 with c5:
     if (folder == 'wk'):
-        setup = st.selectbox('Setup', setups_wk)
+        inp_setup = st.selectbox('Setup', setups.keys())
+        setup = str(setups[inp_setup] + '_wk')
     elif (folder == 'd'):
-        setup = st.selectbox('Setup', setups_d)
+        inp_setup = st.selectbox('Setup', setups.keys())
+        setup = str(setups[inp_setup] + '_d')
 with c6:
     start_capital = st.number_input(label='Capital Inicial', value=10000, step=1000, format='%d')
 with c7:
