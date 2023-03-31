@@ -17,7 +17,7 @@ def graph_balance_report(buy_hold, trades):
         yaxis={"autorange": True, "tickprefix": "R$"},
         yaxis_tickformat = ',.2f',
         hoverlabel={'bgcolor':'grey'})
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
 
 def graph_drawdown_report(buy_hold, trades, avg_dd_peak_pct):
     # Drawndown Buy&Hold
@@ -43,7 +43,7 @@ def graph_drawdown_report(buy_hold, trades, avg_dd_peak_pct):
         yaxis={"autorange": True, "ticksuffix": "%"},
         yaxis_tickformat = '.2f',
         hoverlabel={'bgcolor':'grey'})
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
 
 def graph_trades_return(trades):
     profit = trades[trades['buy_sell'] == 'S']
@@ -53,7 +53,7 @@ def graph_trades_return(trades):
     fig.update_layout(title='Retorno por Trade', 
                       yaxis={"autorange": True, "ticksuffix": "%"}, 
                       yaxis_tickformat = '.2f')
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
 
 def graph_trades(candles, trades, ticker):
     fig = go.Figure(data=[go.Candlestick(x=candles.index,
@@ -92,7 +92,7 @@ def graph_trades(candles, trades, ticker):
                                "arrowsize": 1.2,
                                "arrowcolor": "rgb(253, 8, 8)"}))
     fig.update_layout(annotations=annotations)
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
 
 def graph_compare_report(backtest_report, axis_x, axis_y):
     fig = go.Figure()
@@ -109,4 +109,4 @@ def graph_compare_report(backtest_report, axis_x, axis_y):
     fig.update_layout(title={'text': f"{axis_y}  Vs  {axis_x}"},
                       xaxis={"title":{"text":f"{axis_x}"}, "autorange": True},
                       yaxis={"title":{"text":f"{axis_y}"}, "autorange": True})
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
