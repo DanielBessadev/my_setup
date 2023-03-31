@@ -16,8 +16,7 @@ def graph_balance_report(buy_hold, trades):
         xaxis={"autorange": True},
         yaxis={"autorange": True, "tickprefix": "R$"},
         yaxis_tickformat = ',.2f',
-        hoverlabel={'bgcolor':'grey'},
-        width=1100)
+        hoverlabel={'bgcolor':'grey'})
     st.plotly_chart(fig)
 
 def graph_drawdown_report(buy_hold, trades, avg_dd_peak_pct):
@@ -43,8 +42,7 @@ def graph_drawdown_report(buy_hold, trades, avg_dd_peak_pct):
         xaxis={"autorange": True},
         yaxis={"autorange": True, "ticksuffix": "%"},
         yaxis_tickformat = '.2f',
-        hoverlabel={'bgcolor':'grey'},
-        width=1100)
+        hoverlabel={'bgcolor':'grey'})
     st.plotly_chart(fig)
 
 def graph_trades_return(trades):
@@ -67,8 +65,7 @@ def graph_trades(candles, trades, ticker):
     
     fig.update_layout(
         title=f'Trades de {ticker}',
-        xaxis_rangeslider_visible=False,
-        width=1800, height=900)
+        xaxis_rangeslider_visible=False)
     
     annotations = []
     for i in range(0, len(trades)):
