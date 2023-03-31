@@ -9,7 +9,9 @@ from functions.graphs import graph_balance_report, graph_drawdown_report, graph_
 tickers_pd = pd.read_csv('/app/my_setup/database/b3_stocks.csv')
 tickers = tickers_pd['Código'].sort_values().to_list()
 
-folders = ['d', 'wk']
+#folders = ['d', 'wk']
+frequency = {'Diário': 'd', 'Semanal': 'wk'}
+
 setups_d = ['ff_fd_d','inside_bar_d','max_min_d', 'pfr_d', 'rsi_2_d', 'setup_123_d', 'setup_9_1_d']
 setups_wk = ['ff_fd_wk','inside_bar_wk','max_min_wk', 'pfr_wk', 'rsi_2_wk', 'setup_123_wk', 'setup_9_1_wk']
 
@@ -29,7 +31,8 @@ with c2:
 with c3:
     ticker = st.selectbox('Ativo', tickers)
 with c4:
-    folder = st.selectbox('Frequência', folders)
+    inp_frequency = st.selectbox('Frequência', frequency.keys())
+    folder = frequency[inp_frequency]
 with c5:
     if (folder == 'wk'):
         setup = st.selectbox('Setup', setups_wk)
