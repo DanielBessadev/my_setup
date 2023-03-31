@@ -11,7 +11,7 @@ tickers = tickers_pd['Código'].sort_values().to_list()
 
 frequency = {'Diário': 'd', 'Semanal': 'wk'}
 
-setups = {'Fechou Fora, Fechou Dentro': 'ff_fd', 
+setups_info = {'Fechou Fora, Fechou Dentro': 'ff_fd', 
           'Inside Bar': 'inside_bar', 
           'Máximas e Mínimas': 'max_min', 
           'Preço de Fechamento de Reversão': 'pfr', 
@@ -39,11 +39,11 @@ with c4:
     folder = frequency[inp_frequency]
 with c5:
     if (folder == 'wk'):
-        inp_setup = st.selectbox('Setup', setups.keys())
-        setup = str(setups[inp_setup] + '_wk')
+        inp_setup = st.selectbox('Setup', setups_info.keys())
+        setup = str(setups_info[inp_setup] + '_wk')
     elif (folder == 'd'):
-        inp_setup = st.selectbox('Setup', setups.keys())
-        setup = str(setups[inp_setup] + '_d')
+        inp_setup = st.selectbox('Setup', setups_info.keys())
+        setup = str(setups_info[inp_setup] + '_d')
 with c6:
     start_capital = st.number_input(label='Capital Inicial', value=10000, step=1000, format='%d')
 with c7:
