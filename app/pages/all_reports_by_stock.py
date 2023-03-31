@@ -47,20 +47,20 @@ see_data = st.expander('Clique aqui para ver todos os dados 👉')
 with see_data:
     st.dataframe(all_reports_by_stock.style.format({
         # Basic Report
-        'Stock': "",
+        'Stock': "{:}",
         'Starting Capital': "{:.2f}",
         'Trade Cost': "{:.2f}",
         'Total Trade Cost': "{:.2f}",
         'Ending Capital': "{:.2f}",
         'Net Profit Value': "{:.2f}",
         'Net Profit %': "{:.2f}",
-        'Start Date': "",
-        'End Date': "",
+        'Start Date': "{:}",
+        'End Date': "{:}",
         'Annualized Profit %': "{:.2f}",
         'Annual Volatility %': "{:.2f}",
         # General Trades
         'Number of Trades': "{:.0f}",
-        'Active Trade': "",
+        'Active Trade': "{:}",
         'Average Return Value': "{:.2f}",
         'Average Return %': "{:.2f}",
         'Gain/Loss Ratio': "{:.2f}",
@@ -101,7 +101,7 @@ with see_data:
         # Drawdown
         'Maximum Drawdown Value': "{:.2f}",
         'Maximum Drawdown %': "{:.2f}",
-        'Maximum Drawdown Date': "",
+        'Maximum Drawdown Date': "{:}",
         'Maximum Drawdown Duration': "{:.2f}",
         'Average Peak Drawdown %': "{:.2f}",
         'Average Drawdown Duration': "{:.2f}",
