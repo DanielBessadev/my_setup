@@ -2,8 +2,10 @@ from datetime import datetime
 
 from functions.functions import all_reports_by_stock
 from functions.graphs import graph_compare_report
+from functions.report import report_columns
 from functions.setups import frequency, setups_info
 from functions.tickers import tickers
+
 
 import streamlit as st
 
@@ -109,7 +111,9 @@ axis = all_reports_by_stock.columns.to_list()
 c1, c2 = st.columns((2, 8))
 with c1:
     st.write("Escolha as estatísticas que serão comparadas")
-    axis_y = st.selectbox('Eixo Y', axis, index=5)
-    axis_x = st.selectbox('Eixo X', axis, index=47)    
+    inp_axis_y = st.selectbox('Eixo Y', report_columns.values(), index=5)
+    axis_y = str(list(report_columns.keys())[list(report_columns.values()).index(inp_axis_y)])
+    inp_axis_x = st.selectbox('Eixo X', report_columns.values(), index=47)
+    axis_x = str(list(report_columns.keys())[list(report_columns.values()).index(inp_axis_x)])
 with c2:
     graph_compare_report(all_reports_by_stock, axis_x, axis_y)

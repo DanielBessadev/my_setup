@@ -72,7 +72,7 @@ with c1:
                                     [f"R${backtest_report['Net Profit Value'][0]} ({backtest_report['Net Profit %'][0]}%)", f"R${buy_hold_report['Net Profit Value'][0]} ({buy_hold_report['Net Profit %'][0]}%)"],
                                     [f"{backtest_report['Annualized Profit %'][0]}%", f"{buy_hold_report['Annualized Profit %'][0]}%"],
                                     [f"{backtest_report['Annual Volatility %'][0]}%", f"{buy_hold_report['Annual Volatility %'][0]}%"]],
-                            index=[['Capital Inicial','Total Trade Cost', 'Capital Final', 'Data Inicial', 'Data Final', 'Lucro', 'Lucro Anualizado', 'Volatilidade Anualizada']], 
+                            index=[['Capital Inicial','Custo Operacional Total', 'Capital Final', 'Data Inicial', 'Data Final', 'Lucro', 'Lucro Anualizado', 'Volatilidade Anualizada']], 
                             columns=[str(inp_setup), 'Buy & Hold'])
         st.table(basic)
 
@@ -116,7 +116,7 @@ with c1:
                                             [f"{backtest_report['Min Loss Trade Duration'][0]} dias"],
                                             [f"{backtest_report['Max Consecutive Losses'][0]}"],
                                             [f"{backtest_report['Average Consecutive Losses'][0]}"]],
-                                    index=[['Trades Negativos', 'Taxa de Perda', 'Perda Máxima', 'Perda Média', 'Perda Mínima', 'Duração Máxima', 'Duração Média', 'Duração Mínima', 'Máximo de Perdas Consecutivas', 'Média de Perdas Consecutivas']],
+                                    index=[['Trades Perdedores', 'Taxa de Perda', 'Perda Máxima', 'Perda Média', 'Perda Mínima', 'Duração Máxima', 'Duração Média', 'Duração Mínima', 'Máximo de Perdas Consecutivas', 'Média de Perdas Consecutivas']],
                                     columns=[str(inp_setup)])
         st.table(loss_trades)
     
