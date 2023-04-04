@@ -4,6 +4,7 @@ import streamlit as st
 
 from functions.functions import candles, backtest_trades, backtest_report_calculation, buy_hold, buy_hold_report_calculation
 from functions.graphs import graph_balance_report, graph_drawdown_report, graph_trades_return, graph_trades
+from functions.setups import setups_description
 
 # Variables
 tickers_pd = pd.read_csv('/app/my_setup/database/b3_stocks.csv')
@@ -50,6 +51,20 @@ with c7:
     trade_cost = st.number_input(label='Custo Operacional', value=4, step=1, format='%d')
 with c8:
     risk = st.checkbox(label='Patrimônio Reinvestido', value=False)
+
+c1, c2, c3, c4 = st.columns(4)
+with c1:
+    st.write('Condição:')
+    st.write(str(setups_description[setup]['condition']))
+with c2:
+    st.write('Entrada:')
+    st.write(str(setups_description[setup]['condition']))
+with c3:
+    st.write('Alvo:')
+    st.write(str(setups_description[setup]['condition']))
+with c4:
+    st.write('Stop:')
+    st.write(str(setups_description[setup]['condition']))
 
 trades = backtest_trades(ticker, start_date=start_date, end_date=end_date, folder=folder, setup=setup, risk=risk, start_capital=start_capital, trade_cost=trade_cost)
 
