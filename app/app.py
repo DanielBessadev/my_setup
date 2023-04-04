@@ -1,24 +1,12 @@
 import pandas as pd
 from datetime import datetime
-import streamlit as st
 
 from functions.functions import candles, backtest_trades, backtest_report_calculation, buy_hold, buy_hold_report_calculation
 from functions.graphs import graph_balance_report, graph_drawdown_report, graph_trades_return, graph_trades
-from functions.setups import setups_description
+from functions.setups import frequency, setups_info, setups_description
+from functions.tickers import tickers
 
-# Variables
-tickers_pd = pd.read_csv('/app/my_setup/database/b3_stocks.csv')
-tickers = tickers_pd['Código'].sort_values().to_list()
-
-frequency = {'Diário': 'd', 'Semanal': 'wk'}
-
-setups_info = {'Fechou Fora, Fechou Dentro': 'ff_fd', 
-          'Inside Bar': 'inside_bar', 
-          'Máximas e Mínimas': 'max_min', 
-          'Preço de Fechamento de Reversão': 'pfr', 
-          'RSI-2': 'rsi_2', 
-          'Setup 123 de Compra': 'setup_123', 
-          'Larry Williams 9.1': 'setup_9_1'}
+import streamlit as st
 
 # Streamlit
 st.set_page_config(page_title='Meu Setup', layout='wide')

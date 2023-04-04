@@ -3,21 +3,10 @@ from datetime import datetime
 
 from functions.functions import all_reports_by_stock
 from functions.graphs import graph_compare_report
+from functions.setups import frequency, setups_info
+from functions.tickers import tickers
 
 import streamlit as st
-
-tickers_pd = pd.read_csv('/app/my_setup/database/b3_stocks.csv')
-tickers = tickers_pd['Código'].sort_values().to_list()
-
-frequency = {'Diário': 'd', 'Semanal': 'wk'}
-
-setups_info = {'Fechou Fora, Fechou Dentro': 'ff_fd', 
-          'Inside Bar': 'inside_bar', 
-          'Máximas e Mínimas': 'max_min', 
-          'Preço de Fechamento de Reversão': 'pfr', 
-          'RSI-2': 'rsi_2', 
-          'Setup 123 de Compra': 'setup_123', 
-          'Larry Williams 9.1': 'setup_9_1'}
 
 # Streamlit
 st.set_page_config(page_title='Meu Setup', layout='wide')
