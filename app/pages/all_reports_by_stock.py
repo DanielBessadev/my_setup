@@ -1,4 +1,3 @@
-import pandas as pd
 from datetime import datetime
 
 from functions.functions import all_reports_by_stock
@@ -12,8 +11,6 @@ import streamlit as st
 st.set_page_config(page_title='Meu Setup', layout='wide')
 
 st.subheader("Performance de setups por Ativo")
-
-st.write("Defina os parâmetros para o ativo ser aplicado em todos os setups.")
 
 c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
 with c1:

@@ -1,9 +1,8 @@
-import pandas as pd
 from datetime import datetime
 
 from functions.functions import all_stocks_setup_report
 from functions.graphs import graph_compare_report
-from functions.setups import frequency, setups_info, setups_description
+from functions.setups import frequency, setups_info
 from functions.tickers import tickers
 
 import streamlit as st
@@ -12,8 +11,6 @@ import streamlit as st
 st.set_page_config(page_title='Meu Setup', layout='wide')
 
 st.subheader("Performance do meu setup em todos os ativos")
-
-st.write("Defina os parâmetros para o setup ser aplicado em todos os ativos.")
 
 c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
 with c1:
@@ -103,20 +100,6 @@ with see_data:
         'Average Drawdown Duration': "{:.2f}",
         'Recovery Factor': "{:.2f}"}
     ))
-
-c1, c2, c3, c4 = st.columns(4)
-with c1:
-    st.write('Condição:')
-    st.write(str(setups_description[setups_info[inp_setup]]['condition']))
-with c2:
-    st.write('Entrada:')
-    st.write(str(setups_description[setups_info[inp_setup]]['entry']))
-with c3:
-    st.write('Alvo:')
-    st.write(str(setups_description[setups_info[inp_setup]]['target']))
-with c4:
-    st.write('Stop:')
-    st.write(str(setups_description[setups_info[inp_setup]]['stop']))
 
 axis = all_stocks_setup_report.columns.to_list()
 

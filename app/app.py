@@ -13,9 +13,6 @@ st.set_page_config(page_title='Meu Setup', layout='wide')
 
 st.subheader("Performance do meu setup")
 
-st.write(
-    "Defina a frequência a ser analisada, escolha seu setup, o ativo, o valor a ser testado e defina o período no qual o setup será aplicado.")
-
 c1, c2, c3, c4, c5, c6, c7, c8 = st.columns(8)
 with c1:
     start_date = st.date_input('Data inicial', value=datetime.strptime('2016-01-01', '%Y-%m-%d'))
