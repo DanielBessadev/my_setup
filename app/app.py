@@ -55,16 +55,16 @@ with c8:
 c1, c2, c3, c4 = st.columns(4)
 with c1:
     st.write('Condição:')
-    st.write(str(setups_description[setup]['condition']))
+    st.write(str(setups_description[setups_info[inp_setup]]['condition']))
 with c2:
     st.write('Entrada:')
-    st.write(str(setups_description[setup]['condition']))
+    st.write(str(setups_description[setups_info[inp_setup]]['entry']))
 with c3:
     st.write('Alvo:')
-    st.write(str(setups_description[setup]['condition']))
+    st.write(str(setups_description[setups_info[inp_setup]]['target']))
 with c4:
     st.write('Stop:')
-    st.write(str(setups_description[setup]['condition']))
+    st.write(str(setups_description[setups_info[inp_setup]]['stop']))
 
 trades = backtest_trades(ticker, start_date=start_date, end_date=end_date, folder=folder, setup=setup, risk=risk, start_capital=start_capital, trade_cost=trade_cost)
 
