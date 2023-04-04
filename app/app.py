@@ -33,7 +33,7 @@ with c5:
 with c6:
     start_capital = st.number_input(label='Capital Inicial', value=10000, step=1000, format='%d')
 with c7:
-    trade_cost = st.number_input(label='Custo Operacional', value=4, step=1, format='%d')
+    trade_cost = st.number_input(label='Custo Operacional', value=6, step=1, format='%d')
 with c8:
     risk = st.checkbox(label='Patrimônio Reinvestido', value=False)
 
