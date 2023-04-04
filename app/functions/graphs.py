@@ -101,8 +101,8 @@ def graph_compare_report(backtest_report, axis_x, axis_y):
                              mode='markers',
                              text=backtest_report.index,
                              hovertemplate= "<b>%{text}<b><br><br>" + 
-                             f'{axis_y}' + ": %{y:.2f}%<br>" + 
-                             f'{axis_x}' + ": %{x:.2f}%<br>" + 
+                             f'{axis_y}' + ": %{y:.2f}<br>" + 
+                             f'{axis_x}' + ": %{x:.2f}<br>" + 
                              "Trades: %{marker.color}<extra></extra>", 
                              marker={'color':backtest_report['Number of Trades'],
                                      'colorscale':'plasma','showscale':True}))
