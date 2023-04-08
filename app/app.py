@@ -15,11 +15,8 @@ st.write("""
     Analisar a performance do setup e do ativo em maior detalhe.
     
     Os trades são realizados utilizando todos os dados do ativo e posteriormente filtrados para o período a ser analisado.
-
     Setups tem entrada única (não é feito multitrading).
-
     Os trades são feitos somente na ponta da compra.
-
     Todos os valores dos ativos e estatísticas estão cotadas em Real Brasileiro (BRL).""")
 
 st.subheader("Mercado Financeiro")
