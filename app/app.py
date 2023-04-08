@@ -19,11 +19,17 @@ st.write("""
     Os trades são feitos somente na ponta da compra.
     Todos os valores dos ativos e estatísticas estão cotadas em Real Brasileiro (BRL).""")
 
-st.subheader("Mercado Financeiro")
 c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16 = st.columns(16)
-c8.image(Image.open('app/images/b3_logo.png'))
-c9.image(Image.open('app/images/Yahoo.png'))
+c5.image(Image.open('app/images/b3_logo.png'))
+c6.image(Image.open('app/images/Python.png'))
+c7.image(Image.open('app/images/Selenium.png'))
+c8.image(Image.open('app/images/Pandas.png'))
+c9.image(Image.open('app/images/Numpy.png'))
+c10.image(Image.open('app/images/Plotly.png'))
+c11.image(Image.open('app/images/Streamlit.png'))
+c12.image(Image.open('app/images/Yahoo.png'))
 
+st.subheader("Mercado Financeiro")
 st.write("""
     Ativos listados na [**B3**](https://www.b3.com.br/pt_br/).
     
@@ -32,14 +38,6 @@ st.write("""
     Maioria dos Setups divulgados pelo trader **Stormer** da [**L&S**](https://ls.com.vc).""")
 
 st.subheader("Ciência de Dados e Engenharia de Dados")
-c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16 = st.columns(16)
-c6.image(Image.open('app/images/Python.png'))
-c7.image(Image.open('app/images/Selenium.png'))
-c8.image(Image.open('app/images/Pandas.png'))
-c9.image(Image.open('app/images/Numpy.png'))
-c10.image(Image.open('app/images/Plotly.png'))
-c11.image(Image.open('app/images/Streamlit.png'))
-
 st.write("""
     Lista de Ativos baixados através da biblioteca de automação de navegadores [**Selenium**](https://www.selenium.dev/pt-br/documentation/)
 
@@ -49,6 +47,6 @@ st.write("""
 
     Dashboard escrito em Python usando o framework web [**Streamlit**](https://docs.streamlit.io/library/api-reference).""")
 
-c1, c2, c3 = st.columns(3)
+c1, c2, c3 = st.columns((2,6,2))
 with c2:
     st.write("Isenção de responsabilidade: Não é uma recomendação de compra ou venda de ativos no mercado financeiro.")
