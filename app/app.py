@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 
 # Streamlit
 st.set_page_config(page_title='Meu Setup', layout='wide')
@@ -22,15 +23,29 @@ st.write("""
     Todos os valores dos ativos e estatísticas estão cotadas em Real Brasileiro (BRL).""")
 
 st.subheader("Mercado Financeiro")
+c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16 = st.columns(16)
+c8.image(Image.open('app/images/b3_logo.png'))
+c9.image(Image.open('app/images/Yahoo.png'))
+
 st.write("""
-    Ativos listados na [**B3**](https://www.b3.com.br/pt_br/) e baixados através da biblioteca de automação de navegadores [**Selenium**](https://www.selenium.dev/pt-br/documentation/).
+    Ativos listados na [**B3**](https://www.b3.com.br/pt_br/).
     
     Dados de mercado baixados da [**API Yahoo! de Finanças**](https://pypi.org/project/yfinance/).
 
     Maioria dos Setups divulgados pelo trader **Stormer** da [**L&S**](https://ls.com.vc).""")
 
 st.subheader("Ciência de Dados e Engenharia de Dados")
+c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16 = st.columns(16)
+c6.image(Image.open('app/images/Python.png'))
+c7.image(Image.open('app/images/Selenium.png'))
+c8.image(Image.open('app/images/Pandas.svg'))
+c9.image(Image.open('app/images/Numpy.svg'))
+c10.image(Image.open('app/images/Plotly.png'))
+c11.image(Image.open('app/images/Streamlit.png'))
+
 st.write("""
+    Lista de Ativos baixados através da biblioteca de automação de navegadores [**Selenium**](https://www.selenium.dev/pt-br/documentation/)
+
     Transformações e cálculos implementados usando as bibliotecas [**Pandas**](https://pandas.pydata.org/docs/reference/index.html) e [**Numpy**](https://numpy.org/doc/stable/).
 
     Visualização gráfica realizada com a biblioteca [**Graph Objects (go)**](https://plotly.com/python/graph-objects/) em plotly Python.
