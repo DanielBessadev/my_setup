@@ -49,4 +49,6 @@ st.write("""
 
     Dashboard escrito em Python usando o framework web [**Streamlit**](https://docs.streamlit.io/library/api-reference).""")
 
-st.write("Isenção de responsabilidade: Não é uma recomendação de compra ou venda de ativos no mercado financeiro.")
+c1, c2, c3 = st.columns(3)
+with c2:
+    st.write("Isenção de responsabilidade: Não é uma recomendação de compra ou venda de ativos no mercado financeiro.")
