@@ -31,21 +31,23 @@ c12.image(Image.open('app/images/Yahoo.png'))
 
 st.subheader("Mercado Financeiro")
 st.write("""
-    Ativos listados na [**B3**](https://www.b3.com.br/pt_br/).
+    Ativos listados na [**B3**](https://www.b3.com.br/pt_br/);
     
-    Dados de mercado baixados da [**API Yahoo! de Finanças**](https://pypi.org/project/yfinance/).
+    Dados de mercado baixados da [**API Yahoo! de Finanças**](https://pypi.org/project/yfinance/);
 
     Maioria dos Setups divulgados pelo trader **Stormer** da [**L&S**](https://ls.com.vc).""")
 
 st.subheader("Ciência de Dados e Engenharia de Dados")
 st.write("""
-    Lista de Ativos baixados através da biblioteca de automação de navegadores [**Selenium**](https://www.selenium.dev/pt-br/documentation/)
+    Lista de Ativos baixados através da biblioteca de automação de navegadores [**Selenium**](https://www.selenium.dev/pt-br/documentation/);
 
-    Transformações e cálculos implementados usando as bibliotecas [**Pandas**](https://pandas.pydata.org/docs/reference/index.html) e [**Numpy**](https://numpy.org/doc/stable/).
+    Transformações e cálculos implementados usando as bibliotecas [**Pandas**](https://pandas.pydata.org/docs/reference/index.html) e [**Numpy**](https://numpy.org/doc/stable/);
 
-    Visualização gráfica realizada com a biblioteca [**Graph Objects (go)**](https://plotly.com/python/graph-objects/) em plotly Python.
+    Visualização gráfica realizada com a biblioteca [**Graph Objects (go)**](https://plotly.com/python/graph-objects/) em plotly Python;
 
     Dashboard escrito em Python usando o framework web [**Streamlit**](https://docs.streamlit.io/library/api-reference).""")
+
+st.write("")
 
 c1, c2, c3 = st.columns((2,6,2))
 with c2:
