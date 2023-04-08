@@ -6,7 +6,7 @@ st.set_page_config(page_title='Meu Setup', layout='wide')
 st.title("Meu Setup")
 
 st.write("""
-    O acesso de pessoas físicas no mercado financeiro cresce continuamente. A abordagem Quant direciona e auxilia o trader a minimizar o risco nas operações no mercado. O backtest de setups nos diversos ativos é uma ferramenta importante para a tomada de decisões.")
+    O acesso de pessoas físicas no mercado financeiro cresce continuamente. A abordagem Quant direciona e auxilia o trader a minimizar o risco nas operações no mercado. O backtest de setups nos diversos ativos é uma ferramenta importante para a tomada de decisões.
     
     Essa ferramenta foi projetada e estruturada em várias páginas que podem ser acessadas usando a barra lateral. Cada uma das páginas aborda uma maneira de analisar o backtest de setups.
         Filtrar o ativo e comparar os diversos setups;
@@ -35,6 +35,6 @@ st.write("""
 
     Visualização gráfica realizada com a biblioteca [**Graph Objects (go)**](https://plotly.com/python/graph-objects/) em plotly Python.
 
-    Dashboard escrito em Python usando o framework web Streamlit. (https://docs.streamlit.io/library/api-reference)""")
+    Dashboard escrito em Python usando o framework web [**Streamlit**](https://docs.streamlit.io/library/api-reference).""")
 
 st.write("Isenção de responsabilidade: Não é uma recomendação de compra ou venda de ativos no mercado financeiro.")
