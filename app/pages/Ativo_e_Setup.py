@@ -1,5 +1,6 @@
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, date
+from dateutil.relativedelta import relativedelta
 
 from functions.functions import candles, backtest_trades, backtest_report_calculation, buy_hold, buy_hold_report_calculation
 from functions.graphs import graph_balance_report, graph_drawdown_report, graph_trades_return, graph_trades
@@ -15,7 +16,9 @@ st.subheader("Performance do meu setup")
 
 c1, c2, c3, c4, c5, c6, c7, c8 = st.columns(8)
 with c1:
-    start_date = st.date_input('Data inicial', value=datetime.strptime('2016-01-01', '%Y-%m-%d'))
+    today = date.today()
+    five_years = today + relativedelta(years = -5)
+    start_date = st.date_input('Data inicial', value=datetime.strptime(str(five_years), '%Y-%m-%d'))
 with c2:
     end_date = st.date_input('Data Final')
 with c3:
