@@ -1,4 +1,5 @@
-from datetime import datetime
+from datetime import datetime, date
+from dateutil.relativedelta import relativedelta
 
 from functions.functions import all_stocks_setup_report
 from functions.graphs import graph_compare_report
@@ -15,7 +16,9 @@ st.subheader("Performance do meu setup em todos os ativos")
 
 c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
 with c1:
-    start_date = st.date_input('Data inicial', value=datetime.strptime('2016-01-01', '%Y-%m-%d'))
+    today = date.today()
+    five_years = today + relativedelta(years = -5)
+    start_date = st.date_input('Data inicial', value=datetime.strptime(str(five_years), '%Y-%m-%d'))
 with c2:
     end_date = st.date_input('Data Final')
 with c3:
