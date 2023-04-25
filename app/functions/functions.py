@@ -36,19 +36,27 @@ def candles(ticker, start_date=False, end_date=False, folder=''):
     
     return candles
 
+def trades_stock(candles, setup, folder=''):
+    trades = setup(candles, False, False, False)
+    return trades
+
 def backtest_trades(ticker, start_date=False, end_date=False, folder='', setup='', risk=False, start_capital=10000, trade_cost=4):
     ticker = ticker.upper()
-    directory=ticker
-    parent_dir=f'/app/my_setup/database/stocks_data/{folder}'
-    
-    if (os.path.isfile(f'{parent_dir}/{directory}/{ticker}_{setup}.csv')):
+    """ directory=ticker
+    parent_dir=f'/app/my_setup/database/stocks_data/{folder}' """
+
+    candles(ticker=ticker, start_date=start_date, end_date=end_date, folder=folder)
+
+    trades = trades_stock(candles, setup=setup, folder=folder)
+
+    """ if (os.path.isfile(f'{parent_dir}/{directory}/{ticker}_{setup}.csv')):
         trades = pd.read_csv(f'{parent_dir}/{directory}/{ticker}_{setup}.csv',
                              usecols=['Date','buy_sell','price'],
                              dtype={'buy_sell': 'string', 'price':'float32'},
                              index_col='Date')
     else:
         trades = print(f'No trades for {ticker}')
-        return trades
+        return trades """
     
     # No complete trades
     if (len(trades) == 1):
@@ -1126,18 +1134,12 @@ def buy_hold_report_calculation(ticker, start_date, end_date, folder, start_capi
 def all_stocks_setup_report(tickers, start_date=False, end_date=False, folder='', setup='', risk=False, start_capital=10000, trade_cost=4):
     for ticker in tickers:
         ticker = ticker.upper()
-        directory=ticker
-        parent_dir=f'/app/my_setup/database/stocks_data/{folder}'
+        ticker_backtest_report = backtest_report_calculation(ticker, start_date=start_date, end_date=end_date, folder=folder, setup=setup, risk=risk, start_capital=start_capital, trade_cost=trade_cost)
         
-        if (os.path.isfile(f'{parent_dir}/{directory}/{ticker}_{setup}.csv')):
-            ticker_backtest_report = backtest_report_calculation(ticker, start_date=start_date, end_date=end_date, folder=folder, setup=setup, risk=risk, start_capital=start_capital, trade_cost=trade_cost)
-            
-            if (ticker == tickers[0]):
-                backtest_report = ticker_backtest_report
-            else:
-                backtest_report = pd.concat([ticker_backtest_report, backtest_report])
+        if (ticker == tickers[0]):
+            backtest_report = ticker_backtest_report
         else:
-            continue
+            backtest_report = pd.concat([ticker_backtest_report, backtest_report])
     
     backtest_report.set_index('Stock', inplace=True)
     return backtest_report
