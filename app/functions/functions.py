@@ -38,7 +38,7 @@ def get_candles(ticker, start_date=False, end_date=False, folder=''):
     
     return candles
 
-def trades_stock(candles, setup='', folder=''):
+def trades_stock(candles, setup=''):
     setup = setups_function[setup]
     trades = setup(candles, False, False, False)
     return trades
@@ -50,7 +50,7 @@ def backtest_trades(ticker, start_date=False, end_date=False, folder='', setup='
 
     candles = get_candles(ticker=ticker, start_date=start_date, end_date=end_date, folder=folder)
 
-    trades = trades_stock(candles=candles, setup=setup, folder=folder)
+    trades = trades_stock(candles=candles, setup=setup)
 
     """ if (os.path.isfile(f'{parent_dir}/{directory}/{ticker}_{setup}.csv')):
         trades = pd.read_csv(f'{parent_dir}/{directory}/{ticker}_{setup}.csv',
