@@ -1,3 +1,11 @@
+from assets.setups.ff_fd import ff_fd
+from assets.setups.inside_bar import inside_bar
+from assets.setups.max_min import max_min
+from assets.setups.pfr import pfr
+from assets.setups.rsi_2 import rsi_2
+from assets.setups.setup_123 import setup_123
+from assets.setups.setup_9_1 import setup_9_1
+
 frequency = {'Diário': 'd', 'Semanal': 'wk'}
 
 setups_info = {'Fechou Fora, Fechou Dentro': 'ff_fd', 
@@ -7,6 +15,14 @@ setups_info = {'Fechou Fora, Fechou Dentro': 'ff_fd',
           'RSI-2': 'rsi_2', 
           'Setup 123 de Compra': 'setup_123', 
           'Larry Williams 9.1': 'setup_9_1'}
+
+setups_function = {'ff_fd': ff_fd, 
+                   'inside_bar': inside_bar, 
+                   'max_min': max_min, 
+                   'pfr': pfr, 
+                   'rsi_2': rsi_2, 
+                   'setup_123': setup_123, 
+                   'setup_9_1': setup_9_1}
 
 setups_description = {
     'ff_fd': {'condition': 'Bandas de Bollinger 20 periodos.',

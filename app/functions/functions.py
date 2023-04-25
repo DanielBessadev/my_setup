@@ -3,13 +3,7 @@ from datetime import datetime, date
 import pandas as pd
 import numpy as np
 
-from assets.setups.ff_fd import ff_fd
-from assets.setups.inside_bar import inside_bar
-from assets.setups.max_min import max_min
-from assets.setups.pfr import pfr
-from assets.setups.rsi_2 import rsi_2
-from assets.setups.setup_123 import setup_123
-from assets.setups.setup_9_1 import setup_9_1
+from functions.setups import setups_function
 
 def get_candles(ticker, start_date=False, end_date=False, folder=''):
     ticker = ticker.upper()
@@ -44,7 +38,8 @@ def get_candles(ticker, start_date=False, end_date=False, folder=''):
     
     return candles
 
-def trades_stock(candles, setup, folder=''):
+def trades_stock(candles, setup='', folder=''):
+    setup = setups_function[setup]
     trades = setup(candles, False, False, False)
     return trades
 
