@@ -34,12 +34,8 @@ with c7:
     risk = st.checkbox(label='Patrimônio Reinvestido', value=False)
 
 setups=[]
-if (folder == 'wk'):
-    for i in setups_info.values():
-        setups.append(str(i + '_wk'))
-elif (folder == 'd'):
-    for i in setups_info.values():
-        setups.append(str(i + '_d'))
+for i in setups_info.values():
+    setups.append(str(i))
 
 all_reports_by_stock = all_reports_by_stock(ticker=ticker, start_date=start_date, end_date=end_date, folder=folder, setups=setups, risk=risk, start_capital=start_capital, trade_cost=trade_cost)
 
