@@ -3,13 +3,13 @@ from datetime import datetime, date
 import pandas as pd
 import numpy as np
 
-from backend.assets.setups.ff_fd import ff_fd
-from backend.assets.setups.inside_bar import inside_bar
-from backend.assets.setups.max_min import max_min
-from backend.assets.setups.pfr import pfr
-from backend.assets.setups.rsi_2 import rsi_2
-from backend.assets.setups.setup_123 import setup_123
-from backend.assets.setups.setup_9_1 import setup_9_1
+from assets.setups.ff_fd import ff_fd
+from assets.setups.inside_bar import inside_bar
+from assets.setups.max_min import max_min
+from assets.setups.pfr import pfr
+from assets.setups.rsi_2 import rsi_2
+from assets.setups.setup_123 import setup_123
+from assets.setups.setup_9_1 import setup_9_1
 
 def get_candles(ticker, start_date=False, end_date=False, folder=''):
     ticker = ticker.upper()
