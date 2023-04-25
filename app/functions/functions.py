@@ -45,9 +45,9 @@ def backtest_trades(ticker, start_date=False, end_date=False, folder='', setup='
     """ directory=ticker
     parent_dir=f'/app/my_setup/database/stocks_data/{folder}' """
 
-    candles(ticker=ticker, start_date=start_date, end_date=end_date, folder=folder)
+    candles = candles(ticker=ticker, start_date=start_date, end_date=end_date, folder=folder)
 
-    trades = trades_stock(candles, setup=setup, folder=folder)
+    trades = trades_stock(candles=candles, setup=setup, folder=folder)
 
     """ if (os.path.isfile(f'{parent_dir}/{directory}/{ticker}_{setup}.csv')):
         trades = pd.read_csv(f'{parent_dir}/{directory}/{ticker}_{setup}.csv',
