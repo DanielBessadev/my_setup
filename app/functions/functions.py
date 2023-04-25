@@ -3,7 +3,7 @@ from datetime import datetime, date
 import pandas as pd
 import numpy as np
 
-def candles(ticker, start_date=False, end_date=False, folder=''):
+def get_candles(ticker, start_date=False, end_date=False, folder=''):
     ticker = ticker.upper()
     directory=ticker
     parent_dir=f'/app/my_setup/database/stocks_data/{folder}'
@@ -45,7 +45,7 @@ def backtest_trades(ticker, start_date=False, end_date=False, folder='', setup='
     """ directory=ticker
     parent_dir=f'/app/my_setup/database/stocks_data/{folder}' """
 
-    candles = candles(ticker=ticker, start_date=start_date, end_date=end_date, folder=folder)
+    candles = get_candles(ticker=ticker, start_date=start_date, end_date=end_date, folder=folder)
 
     trades = trades_stock(candles=candles, setup=setup, folder=folder)
 

@@ -2,7 +2,7 @@ import pandas as pd
 from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 
-from functions.functions import candles, backtest_trades, backtest_report_calculation, buy_hold, buy_hold_report_calculation
+from functions.functions import get_candles, backtest_trades, backtest_report_calculation, buy_hold, buy_hold_report_calculation
 from functions.graphs import graph_balance_report, graph_drawdown_report, graph_trades_return, graph_trades
 from functions.setups import frequency, setups_info, setups_description
 from functions.tickers import tickers
@@ -141,5 +141,5 @@ with c2:
     graph_drawdown_report(buy_hold=buy_hold, trades=trades, avg_dd_peak_pct=backtest_report['Average Peak Drawdown %'][0])
 
 # Candles & Trades
-candles = candles(ticker=ticker, start_date=start_date, end_date=end_date, folder=folder)
+candles = get_candles(ticker=ticker, start_date=start_date, end_date=end_date, folder=folder)
 graph_trades(candles=candles, trades=trades, ticker=ticker)
