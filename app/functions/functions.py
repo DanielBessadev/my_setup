@@ -44,7 +44,7 @@ def get_candles(ticker, start_date=False, end_date=False, folder=''):
     
     return candles
 
-def trades_stock(candles, setup='', folder=''):
+def trades_stock(candles, setup, folder=''):
     trades = setup(candles, False, False, False)
     return trades
 
