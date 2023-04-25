@@ -29,10 +29,10 @@ with c4:
 with c5:
     if (folder == 'wk'):
         inp_setup = st.selectbox('Setup', setups_info.keys())
-        setup = str(setups_info[inp_setup] + '_wk')
+        setup = str(setups_info[inp_setup])
     elif (folder == 'd'):
         inp_setup = st.selectbox('Setup', setups_info.keys())
-        setup = str(setups_info[inp_setup] + '_d')
+        setup = str(setups_info[inp_setup])
 with c6:
     start_capital = st.number_input(label='Capital Inicial', value=10000, step=1000, format='%d')
 with c7:
