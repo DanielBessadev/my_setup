@@ -62,19 +62,15 @@ def setup_9_1(data, start_date, end_date, multi_trade = False):
                     entry_trigger_candle.append(i-1)
                 if entry_trigger:
                     # Trade válido enquanto a ema9 continua ascendente
-                    if ((high[i] > high[entry_trigger_candle[-1]]) and (ema9[i-1]<ema9[i])):
+                    if (high[i] > high[entry_trigger_candle[-1]]):
                         entry_trigger = False
                         positioned = True
                         buy_sell.append('B')
-                        price.append(high[entry_trigger_candle[-1]] + 0.01)
+                        if (low[i] > high[entry_trigger_candle[-1]]):
+                            price.append(open[i])  # GAP
+                        else:
+                            price.append(high[entry_trigger_candle[-1]] + 0.01)
                         continue
-                    # Entry Not Triggered
-                    if not (ema9[i-1]<ema9[i]):
-                        entry_trigger = False
-                        buy_sell.append('NA')
-                        entry_trigger_candle.pop()
-                        continue
-                    # Perda da mínima sem virada da média  
                     else:
                         buy_sell.append('NA')
                 else:

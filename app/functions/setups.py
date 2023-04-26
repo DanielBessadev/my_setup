@@ -50,7 +50,7 @@ setups_description = {
                   'target': '2x amplitude do 123 (da maior máxima até menor mínima).',
                   'stop': 'Perda da menor mínima do 123.'},
     'setup_9_1': {'condition': 'Média móvel exponencial 9 períodos.',
-                  'entry': 'Rompimento da máxima do candle que virar a mme9 para cima (cancelada se mme9 virar para baixo).',
+                  'entry': 'Rompimento da máxima do candle que virar a mme9 para cima.',
                   'target': 'Perda da mínima do candle que virar a mme9 para baixo (cancelado se mme9 virar para cima).',
                   'stop': 'Perda da mínima do candle gatilho.'}
 }
