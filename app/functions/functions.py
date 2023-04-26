@@ -7,11 +7,10 @@ from functions.setups import setups_function
 
 def get_candles(ticker, start_date=False, end_date=False, folder=''):
     ticker = ticker.upper()
-    directory=ticker
     parent_dir=f'/app/my_setup/database/stocks_data/{folder}'
     
-    if (os.path.isfile(f'{parent_dir}/{directory}/{ticker}_{folder}_quote.csv')):
-        candles = pd.read_csv(f'{parent_dir}/{directory}/{ticker}_{folder}_quote.csv', index_col='Date')
+    if (os.path.isfile(f'{parent_dir}/{ticker}_{folder}_quote.csv')):
+        candles = pd.read_csv(f'{parent_dir}/{ticker}_{folder}_quote.csv', index_col='Date')
     else:
         candles = print(f'No data for {ticker}')
         return candles
@@ -45,21 +44,10 @@ def trades_stock(candles, setup=''):
 
 def backtest_trades(ticker, start_date=False, end_date=False, folder='', setup='', risk=False, start_capital=10000, trade_cost=4):
     ticker = ticker.upper()
-    """ directory=ticker
-    parent_dir=f'/app/my_setup/database/stocks_data/{folder}' """
 
     candles = get_candles(ticker=ticker, start_date=start_date, end_date=end_date, folder=folder)
 
     trades = trades_stock(candles=candles, setup=setup)
-
-    """ if (os.path.isfile(f'{parent_dir}/{directory}/{ticker}_{setup}.csv')):
-        trades = pd.read_csv(f'{parent_dir}/{directory}/{ticker}_{setup}.csv',
-                             usecols=['Date','buy_sell','price'],
-                             dtype={'buy_sell': 'string', 'price':'float32'},
-                             index_col='Date')
-    else:
-        trades = print(f'No trades for {ticker}')
-        return trades """
     
     # No complete trades
     if (len(trades) == 1):
@@ -764,11 +752,10 @@ def backtest_report_calculation(ticker, start_date, end_date, folder, setup, ris
 
 def buy_hold(ticker, start_date=False, end_date=False, folder='', start_capital=10000, trade_cost=4):
     ticker = ticker.upper()
-    directory=ticker
     parent_dir=f'/app/my_setup/database/stocks_data/{folder}'
 
-    if (os.path.isfile(f'{parent_dir}/{directory}/{ticker}_{folder}_quote.csv')):
-        stock_data = pd.read_csv(f'{parent_dir}/{directory}/{ticker}_{folder}_quote.csv', index_col='Date', engine='python', usecols=['Date','Close'], dtype={'Close':'float32'})
+    if (os.path.isfile(f'{parent_dir}/{ticker}_{folder}_quote.csv')):
+        stock_data = pd.read_csv(f'{parent_dir}/{ticker}_{folder}_quote.csv', index_col='Date', engine='python', usecols=['Date','Close'], dtype={'Close':'float32'})
     else:
         stock_data = print(f'No trades for {ticker}')
     
