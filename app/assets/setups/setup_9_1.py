@@ -28,8 +28,10 @@ def setup_9_1(data, start_date, end_date, multi_trade = False):
     rates_total = len(candles)
     
     ema9 = candles['EMA9']
+    open = candles['Open']
     high = candles['High']
     low = candles['Low']
+    close = candles['Close']
     
     if (rates_total <= 2):
         print('Necessário mais candles para aplicar o modelo')
