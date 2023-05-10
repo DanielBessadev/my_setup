@@ -55,4 +55,4 @@ with c2:
 
 c1, c2, c3 = st.columns((2,6,2))
 with c2:
-    st.info('**GitHub: [@DanielBessadev](https://github.com/DanielBessadev)**', icon='None')
+    st.info('**GitHub: [@DanielBessadev](https://github.com/DanielBessadev)**')
