@@ -52,3 +52,7 @@ st.write("")
 c1, c2, c3 = st.columns((2,6,2))
 with c2:
     st.write("Isenção de responsabilidade: Não é uma recomendação de compra ou venda de ativos no mercado financeiro.")
+
+c1, c2, c3 = st.columns((2,6,2))
+with c2:
+    st.info('**GitHub: [@DanielBessadev](https://github.com/DanielBessadev)**', icon='None')
