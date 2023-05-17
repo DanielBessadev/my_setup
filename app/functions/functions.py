@@ -4,8 +4,11 @@ import pandas as pd
 import numpy as np
 
 from functions.setups import setups_function
+from assets.indicators.bb import calculate_BB
+from assets.indicators.rsi import calculate_RSI
+from assets.indicators.ma import calculate_MA
 
-def get_candles(ticker, start_date=False, end_date=False, folder=''):
+def get_candles(ticker, start_date=False, end_date=False, folder='', setup=''):
     ticker = ticker.upper()
     parent_dir=f'/app/my_setup/database/stocks_data/{folder}'
     
@@ -15,6 +18,14 @@ def get_candles(ticker, start_date=False, end_date=False, folder=''):
         candles = print(f'No data for {ticker}')
         return candles
     
+    # Indicators
+    if setup == 'ff_fd':
+        candles = calculate_BB(data=candles, inpCandle='Close', InpBandsPeriod=20, InpBandsDeviations=2)
+    if setup == 'rsi_2':
+        candles = calculate_RSI(data=candles, inpPeriodRSI=2, inpPrice='Close')
+    if setup == 'setup_9_1':
+        candles = calculate_MA(data=candles, inpCandle='Close', InpMAMethod='EMA', InpMAPeriod=9)
+
     # Dates
     if (start_date is False):
         start_date = candles.index[0]
@@ -45,7 +56,7 @@ def trades_stock(candles, setup=''):
 def backtest_trades(ticker, start_date=False, end_date=False, folder='', setup='', risk=False, start_capital=10000, trade_cost=4):
     ticker = ticker.upper()
 
-    candles = get_candles(ticker=ticker, start_date=start_date, end_date=end_date, folder=folder)
+    candles = get_candles(ticker=ticker, start_date=start_date, end_date=end_date, folder=folder, setup=setup)
 
     trades = trades_stock(candles=candles, setup=setup)
     

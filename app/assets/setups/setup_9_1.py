@@ -1,9 +1,4 @@
-from assets.indicators.ma import calculate_MA
-
 def setup_9_1(data, start_date, end_date, multi_trade = False):
-    # EMA9
-    data = calculate_MA(data=data, inpCandle='Close', InpMAMethod='EMA', InpMAPeriod=9)
-
     # Dates
     if(len(data) < 2):
         start_date = data.index[0]

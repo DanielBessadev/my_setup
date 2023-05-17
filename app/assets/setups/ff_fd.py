@@ -1,10 +1,6 @@
 import numpy as np
-from assets.indicators.bb import calculate_BB
 
 def ff_fd(data, start_date, end_date, multi_trade = False):
-    # RSI14
-    data = calculate_BB(data=data, inpCandle='Close', InpBandsPeriod=20, InpBandsDeviations=2)
-
     # Dates
     if(len(data) < 2):
         start_date = data.index[0]

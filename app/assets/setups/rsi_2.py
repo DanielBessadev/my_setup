@@ -1,9 +1,4 @@
-from assets.indicators.rsi import calculate_RSI
-
 def rsi_2(data, start_date, end_date, multi_trade = False):
-    # RSI14
-    data = calculate_RSI(data=data, inpPeriodRSI=2, inpPrice='Close')
-
     # Dates
     if(len(data) < 2):
         start_date = data.index[0]
