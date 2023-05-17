@@ -370,10 +370,10 @@ def backtest_report_calculation(ticker, start_date, end_date, folder, setup, ris
     dur_end_date=datetime.strptime(str(end_date), '%Y-%m-%d').date()
     
     buy = trades[trades['buy_sell'] == 'B'].index
-    buy = pd.to_datetime(buy, utc=True, infer_datetime_format=True)
+    buy = pd.to_datetime(buy, utc=True)
     
     sell = trades[trades['buy_sell'] == 'S'].index
-    sell = pd.to_datetime(sell, utc=True, infer_datetime_format=True)
+    sell = pd.to_datetime(sell, utc=True)
     
     if (buy.empty):
         max_duration = 0
@@ -445,8 +445,8 @@ def backtest_report_calculation(ticker, start_date, end_date, folder, setup, ris
             profit_sell.append(sell.index[i])
             profit_buy.append(buy.index[i])
 
-    profit_buy = pd.to_datetime(profit_buy, utc=True, infer_datetime_format=True)
-    profit_sell = pd.to_datetime(profit_sell, utc=True, infer_datetime_format=True)
+    profit_buy = pd.to_datetime(profit_buy, utc=True)
+    profit_sell = pd.to_datetime(profit_sell, utc=True)
     
     if (len(gain) > 0):
         for i in range(len(profit_buy)+1):   #### testar para len(trade_buy) != len(trade_sell)
@@ -537,8 +537,8 @@ def backtest_report_calculation(ticker, start_date, end_date, folder, setup, ris
             loss_sell.append(sell.index[i])
             loss_buy.append(buy.index[i])
     
-    loss_buy = pd.to_datetime(loss_buy, utc=True, infer_datetime_format=True)
-    loss_sell = pd.to_datetime(loss_sell, utc=True, infer_datetime_format=True)
+    loss_buy = pd.to_datetime(loss_buy, utc=True)
+    loss_sell = pd.to_datetime(loss_sell, utc=True)
     
     if (len(loss) > 0):
         for i in range(len(loss_buy)+1):   #### testar para len(trade_buy) != len(trade_sell)
