@@ -10,7 +10,7 @@ from assets.indicators.ma import calculate_MA
 
 def get_candles(ticker, start_date=False, end_date=False, folder='', setup=''):
     ticker = ticker.upper()
-    parent_dir=f'/app/my_setup/database/stocks_data/{folder}'
+    parent_dir=f'database/stocks_data/{folder}'
     
     if (os.path.isfile(f'{parent_dir}/{ticker}_{folder}_quote.csv')):
         candles = pd.read_csv(f'{parent_dir}/{ticker}_{folder}_quote.csv', index_col='Date')
@@ -763,7 +763,7 @@ def backtest_report_calculation(ticker, start_date, end_date, folder, setup, ris
 
 def buy_hold(ticker, start_date=False, end_date=False, folder='', start_capital=10000, trade_cost=4):
     ticker = ticker.upper()
-    parent_dir=f'/app/my_setup/database/stocks_data/{folder}'
+    parent_dir=f'database/stocks_data/{folder}'
 
     if (os.path.isfile(f'{parent_dir}/{ticker}_{folder}_quote.csv')):
         stock_data = pd.read_csv(f'{parent_dir}/{ticker}_{folder}_quote.csv', index_col='Date', engine='python', usecols=['Date','Close'], dtype={'Close':'float32'})
