@@ -3,6 +3,7 @@ import numpy as np
 def ff_fd(data, start_date, end_date, multi_trade = False):
     # Dates
     if(len(data) < 2):
+        print(data)
         start_date = data.index[0]
         end_date = data.index[0]
     else:
