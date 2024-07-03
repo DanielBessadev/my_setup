@@ -49,9 +49,12 @@ def get_candles(ticker, start_date=False, end_date=False, folder='', setup=''):
     return candles
 
 def trades_stock(candles, setup=''):
-    setup = setups_function[setup]
-    trades = setup(candles, False, False, False)
-    return trades
+    if len(candles) <= 2:
+        return candles
+    else:
+        setup = setups_function[setup]
+        trades = setup(candles, False, False, False)
+        return trades
 
 def backtest_trades(ticker, start_date=False, end_date=False, folder='', setup='', risk=False, start_capital=10000, trade_cost=4):
     ticker = ticker.upper()
