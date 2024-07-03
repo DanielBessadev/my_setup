@@ -63,7 +63,7 @@ def backtest_trades(ticker, start_date=False, end_date=False, folder='', setup='
     # No complete trades
     if (len(trades) == 1):
         trades['pct_change'] = 0
-        trades['profit'] = np.NaN
+        trades['profit'] = np.nan
         trades['balance'] = start_capital
         print(f'No completed trades for {ticker}')
         return trades
@@ -87,7 +87,7 @@ def backtest_trades(ticker, start_date=False, end_date=False, folder='', setup='
         if (trades['buy_sell'][0] == 'S'):
             if (len(trades) == 1):
                 trades['pct_change'] = 0
-                trades['profit'] = np.NaN
+                trades['profit'] = np.nan
                 trades['balance'] = start_capital
                 print(f'No completed trades for {ticker}')
                 return trades
@@ -109,7 +109,7 @@ def backtest_trades(ticker, start_date=False, end_date=False, folder='', setup='
     if not risk:
         trades.loc[idx_sell, 'profit'] = start_capital * (100 + trades['pct_change']) / 100 - start_capital - (trade_cost*2)
         
-        trades['balance'] = np.NaN
+        trades['balance'] = np.nan
         trades['balance'] = trades['profit'].cumsum() + start_capital
         trades.at[trades.index[0], 'balance'] = start_capital
     
@@ -117,10 +117,10 @@ def backtest_trades(ticker, start_date=False, end_date=False, folder='', setup='
     if risk:
         pct_change = trades['pct_change']
         
-        trades['profit'] = np.NaN
+        trades['profit'] = np.nan
         profit = trades['profit']
         
-        trades['balance'] = np.NaN
+        trades['balance'] = np.nan
         trades.at[trades.index[0], 'balance'] = start_capital
         balance = trades['balance']
 
@@ -790,7 +790,7 @@ def buy_hold(ticker, start_date=False, end_date=False, folder='', start_capital=
     stock_data['pct_change'].fillna(0, inplace=True)
 
     # Balance
-    stock_data['balance'] = np.NaN
+    stock_data['balance'] = np.nan
     stock_data.at[stock_data.index[0], 'balance'] = start_capital
     
     balance = stock_data['balance']
