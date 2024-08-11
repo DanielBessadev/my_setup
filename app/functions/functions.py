@@ -15,7 +15,7 @@ def get_candles(ticker, start_date=False, end_date=False, folder='', setup=''):
     if (os.path.isfile(f'{parent_dir}/{ticker}_{folder}_quote.csv')):
         candles = pd.read_csv(f'{parent_dir}/{ticker}_{folder}_quote.csv', index_col='Date')
     else:
-        candles = print(f'No data for {ticker}')
+        print(f'No data for {ticker}')
         return candles
     
     # Indicators
